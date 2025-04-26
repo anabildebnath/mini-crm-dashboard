@@ -1,9 +1,11 @@
 // frontend/src/App.jsx
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import DashboardPage from "./pages/Dashboard";
+import CustomersPage from "./pages/Customers";
+import UploadPage from "./pages/Upload";
 
 function App() {
   return (
@@ -18,6 +20,23 @@ function App() {
           </ProtectedRoute>
         }
       />
+      <Route
+        path="/customers"
+        element={
+          <ProtectedRoute>
+            <CustomersPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/upload"
+        element={
+          <ProtectedRoute>
+            <UploadPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route path="*" element={<Navigate to="/dashboard" />} />
     </Routes>
   );
 }

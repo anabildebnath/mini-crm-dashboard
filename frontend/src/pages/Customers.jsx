@@ -1,4 +1,3 @@
-// frontend/src/pages/Dashboard.jsx
 import { useState, useEffect } from 'react';
 import { getCustomers } from '../api/customers';
 
