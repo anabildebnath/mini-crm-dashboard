@@ -1,3 +1,4 @@
+// frontend/src/pages/SignupPage.jsx
 import { SignupForm } from "@/components/signup-form";
 import React from "react";
 

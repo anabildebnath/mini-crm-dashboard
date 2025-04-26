@@ -1,3 +1,4 @@
+// frontend/src/pages/LoginPage.jsx
 import React from "react";
 import { LoginForm } from "../components/login-form.jsx";
 

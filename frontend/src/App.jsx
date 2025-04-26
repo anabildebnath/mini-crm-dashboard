@@ -1,3 +1,4 @@
+// frontend/src/App.jsx
 import { Routes, Route } from "react-router-dom";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import LoginPage from "./pages/LoginPage";

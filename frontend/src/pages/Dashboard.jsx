@@ -1,3 +1,4 @@
+// frontend/src/pages/Dashboard.jsx
 export default function Dashboard() {
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-50">
