@@ -1,6 +1,4 @@
-// backend/src/models/index.js
 const User = require('./user');
+const Customer = require('./customer');
 
-module.exports = {
-  User
-};
+module.exports = { User, Customer };
