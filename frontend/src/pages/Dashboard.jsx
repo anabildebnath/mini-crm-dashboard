@@ -1,35 +1,30 @@
-// frontend/src/pages/Dashboard.jsx
-import { useState, useEffect } from 'react';
-import { getCustomers } from '../api/customers';
+// file: frontend/src/pages/Dashboard.jsx
+import React from 'react';
+import { AppSidebar } from '../components/app-sidebar.jsx';
+import { ChartAreaInteractive } from '../components/chart-area-interactive.jsx';
+import { DataTable } from '../components/data-table.jsx';
+import { SectionCards } from '../components/section-cards.jsx';
+import { SiteHeader } from '../components/site-header.jsx';
+import { SidebarInset, SidebarProvider } from '../components/ui/sidebar.jsx';
 
 export default function Dashboard() {
-  const [stats, setStats] = useState({ total: 0, byTag: {} });
-
-  useEffect(() => {
-    // fetch overall customers count and tag breakdown
-    getCustomers({ stats: true }).then(res => setStats(res.data));
-  }, []);
-
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
-      <h1 className="text-3xl font-bold mb-4">Dashboard</h1>
-      <div className="grid grid-cols-2 gap-4">
-        <div className="p-4 bg-white rounded-lg shadow">
-          <h2 className="text-xl font-semibold">Total Customers</h2>
-          <p className="text-4xl mt-2 font-bold">{stats.total}</p>
+    <SidebarProvider>
+      <AppSidebar variant="inset" />
+      <SidebarInset>
+        <SiteHeader />
+        <div className="flex flex-1 flex-col">
+          <div className="@container/main flex flex-1 flex-col gap-2">
+            <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
+              <SectionCards />
+              <div className="px-4 lg:px-6">
+                <ChartAreaInteractive />
+              </div>
+
+            </div>
+          </div>
         </div>
-        <div className="p-4 bg-white rounded-lg shadow col-span-1">
-          <h2 className="text-xl font-semibold">Customers by Tag</h2>
-          <ul className="mt-2 space-y-1">
-            {Object.entries(stats.byTag).map(([tag, count]) => (
-              <li key={tag} className="flex justify-between">
-                <span>{tag}</span>
-                <span className="font-bold">{count}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
+      </SidebarInset>
+    </SidebarProvider>
   );
 }

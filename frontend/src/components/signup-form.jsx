@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { AuthContext } from "@/context/AuthContext";
+import { AuthContext } from "../context/AuthContext.jsx";
 
 export function SignupForm({ className, ...props }) {
   const [name, setName] = useState("");
